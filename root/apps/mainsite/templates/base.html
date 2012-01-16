@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        {%block head%}
+            <title>{%block page_title%}{%endblock%}</title>
+
+            <link rel="StyleSheet" href="{{STATIC_URL}}css/screen.css"/>
+
+            <script src="{{STATIC_URL}}js/site.js"></script>
+
+        {%endblock head%}
+        {%block extrahead%} {%endblock extrahead%}
+    </head>
+    <body>
+        {%block body%}
+
+            {%block pre_content%}{%endblock pre_content%}
+
+            {%block content%}{%endblock content%}
+
+            {%block post_content%}{%endblock post_content%}
+
+        {%endblock body%}
+
+        {%block extrabody%}{%endblock extrabody%}
+    </body>
+</html>
