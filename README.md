@@ -25,9 +25,9 @@ This project is licensed under the [Apache License, Version 2.0](http://www.apac
 When starting a project, delete everything in this readme above this line (see below) and you will have a template for your project's README.
 
 
-=========== DELETE EVERYTHING ABOVE THIS LINE WHEN MAKING A NEW PROJECT ===========
-============ The text below will server as your actual project README  ============
-==================== ######################################### ====================
+DELETE EVERYTHING ABOVE THIS LINE WHEN MAKING A NEW PROJECT -- The text below will server as your actual project README
+
+***********************************************************************************************************************
 
 # {{ project_name }}
 
