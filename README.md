@@ -8,7 +8,7 @@ This template is a derivation of [django-template-auzigog](http://github.com/auz
 Pre-configured to work with:
 
   * Heroku!
-  * [PostgreSQL](http://www.postgresql.org/)
+  * [PostgreSQL](http://www.postgresql.org/) database
   * [Jinja2](http://jinja.pocoo.org/docs/) templates
   * [django-debug-toolbar](http://github.com/django-debug-toolbar/django-debug-toolbar)
   * `.env_local` provided to separate machine-specific settings from universal settings
@@ -20,7 +20,8 @@ The following is the short version of the usage instructions. For the full versi
     pip install djenesis   # Install djenesis if you haven't already
 
     cd ~/Projects
-    djenesis PROJECTNAME/code --virtualenv=PROJECTENV/env git+https://github.com/auzigog/django-template-heroku.git
+    mkdir PROJECTNAME && cd PROJECTNAME
+    djenesis code --virtualenv=env git+https://github.com/auzigog/django-template-heroku.git
     cd PROJECTNAME/code
 
 
@@ -33,6 +34,8 @@ After starting a fresh project:
     1. Copy (don't rename) SAMPLE to a new directory for your new app. Example: `cp -R SAMPLEAPP blog`
     1. Specify new app name in `mainsite.urls`. Example: change `(r'', include('SAMPLEAPP.urls')),` to `(r'', include('blog.urls')),`
     1. Add urls, views, and templates to your new app as necessary
+  1. Delete `LICENSE` if it is not how you want to license your new project
+  1. Follow the *Usage* instructions in your new `README.md`
 
 
 ## Usage

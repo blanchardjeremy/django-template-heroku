@@ -3,3 +3,5 @@
 *.pyc
 static/*
 uploads/*
+settings_local.py
+.env

@@ -10,8 +10,6 @@ if APPS_DIR not in sys.path:
 from mainsite import TOP_DIR
 
 
-SECRET_KEY = ')90x&rn=#$^yq#ug(!f+_lfn4qq_x1--*7u-d6*nq0qciolw)#'
-
 DEBUG = os.environ.get('DEBUG', False)
 TEMPLATE_DEBUG = DEBUG
 
@@ -81,6 +79,7 @@ ADMIN_MEDIA_PREFIX = STATIC_URL+'admin/'
 ROOT_URLCONF = 'mainsite.urls'
 
 
+SECRET_KEY = ''
 TIME_ZONE = 'America/Los_Angeles'
 LANGUAGE_CODE = 'en-us'
 SITE_ID = 1
