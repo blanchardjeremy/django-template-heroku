@@ -11,7 +11,8 @@ When you begin working on this project, do the following:
     cd ~/Projects/thisproject/code
     source .env                     # Load the system-specific settings for this project
     source ../env/bin/activate      # Load the virutalenv for this project
-    ./manage.py runserver           # Launch your server. Visit http://localhost:8000/
+    ./root/manage.py syncdb         # Initialize the database
+    ./root/manage.py runserver      # Launch your server. Visit http://localhost:8000/
 
 
 ## Local Settings
