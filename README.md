@@ -11,7 +11,7 @@ Pre-configured to work with:
   * [PostgreSQL](http://www.postgresql.org/) database
   * [Jinja2](http://jinja.pocoo.org/docs/) templates
   * [django-debug-toolbar](http://github.com/django-debug-toolbar/django-debug-toolbar)
-  * `.env_local` provided to separate machine-specific settings from universal settings
+  * `.env` provided to separate machine-specific settings from universal settings
 
 ## Setup
 The following is the short version of the usage instructions. For the full version, check out [django-template-auzigog](http://github.com/auzigog/django-template-auzigog) and add the extra steps relating to Heroku.
@@ -32,6 +32,7 @@ After starting a fresh project:
   1. Delete this `README.md` file, rename `README.md.example` to `README.md`, replace with information for your current project
   1. Create your first app using SAMPLEAPP as a template
     1. Copy (don't rename) SAMPLE to a new directory for your new app. Example: `cp -R SAMPLEAPP blog`
+    1. Add the new application to your `INSTALLED_APPS` in `settings.py`
     1. Specify new app name in `mainsite.urls`. Example: change `(r'', include('SAMPLEAPP.urls')),` to `(r'', include('blog.urls')),`
     1. Add urls, views, and templates to your new app as necessary
   1. Delete `LICENSE` if it is not how you want to license your new project
