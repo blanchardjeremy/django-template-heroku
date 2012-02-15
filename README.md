@@ -34,6 +34,7 @@ After starting a fresh project:
     1. Copy (don't rename) SAMPLE to a new directory for your new app. Example: `cp -R SAMPLEAPP blog`
     1. Add the new application to your `INSTALLED_APPS` in `settings.py`
     1. Specify new app name in `mainsite.urls`. Example: change `(r'', include('SAMPLEAPP.urls')),` to `(r'', include('blog.urls')),`
+    1. In your new app, edit `urls.py` and change all instances of SAMPLEAPP to your app name.
     1. Add urls, views, and templates to your new app as necessary
   1. Delete `LICENSE` if it is not how you want to license your new project
   1. Follow the *Usage* instructions in your new `README.md`

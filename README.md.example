@@ -16,7 +16,7 @@ When you begin working on this project, do the following:
 
 
 ## Local Settings
-Heroku's system requires that local (per-environment) settings be started as operating system environment variables.
+Heroku's system requires that local (per-environment) settings be stored as operating system environment variables.
 
 For your development environment, specify settings in the `.env` file and then retreive them in settings.py like so:
 ```python
