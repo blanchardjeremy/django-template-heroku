@@ -1,7 +1,7 @@
 *~
 .DS_Store
 *.pyc
-static/*
-uploads/*
+root/static/*
+root/uploads/*
 settings_local.py
 .env
