@@ -17,11 +17,7 @@ urlpatterns = patterns('',
 )
 
 
-if settings.DEBUG:
-    # If we are in debug mode, prepend a rule to urlpatterns to serve the static media
-    import re
-    urlpatterns = patterns('',
-        url(r'^%s(?P<path>.*)$' % re.escape(settings.STATIC_URL), 'django.views.static.serve', {
-            'document_root': settings.STATIC_ROOT
-        }),
-    ) + urlpatterns
+if not settings.DEBUG or settings.DJANGO_SERVE_STATIC:
+    urlpatterns += patterns('',
+        (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+    )

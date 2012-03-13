@@ -7,6 +7,7 @@ This template is a derivation of [django-template-auzigog](http://github.com/auz
 ## Features
 Pre-configured to work with:
 
+  * Built for use with Django 1.4
   * Heroku!
   * [PostgreSQL](http://www.postgresql.org/) database
   * [Jinja2](http://jinja.pocoo.org/docs/) templates

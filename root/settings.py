@@ -13,6 +13,9 @@ from mainsite import TOP_DIR
 DEBUG = os.environ.get('DEBUG', False)
 TEMPLATE_DEBUG = DEBUG
 
+# Whether or not django should serve static files through its wsgi server. Suggested against in the docs, but makes deployment to heroku easier.
+DJANGO_SERVE_STATIC = os.environ.get('DJANGO_SERVE_STATIC', True)
+
 
 INSTALLED_APPS = [
     'django.contrib.auth',
@@ -26,7 +29,7 @@ INSTALLED_APPS = [
     'mainsite',
 ]
 
-JINGO_EXCLUDE_APPS = ['admin']
+JINGO_EXCLUDE_APPS = ['admin', 'registration',]
 
 
 
