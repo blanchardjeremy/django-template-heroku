@@ -5,12 +5,13 @@
 ## Dependencies
 
 
+## Setup
+
 ## Usage
 When you begin working on this project, do the following:
 
     cd ~/Projects/thisproject/code
-    source .env                     # Load the system-specific settings for this project
-    source ../env/bin/activate      # Load the virutalenv for this project
+    source .env                     # Load the system-specific settings for this project and load the virtualenv
     ./root/manage.py syncdb         # Initialize the database
     ./root/manage.py runserver      # Launch your server. Visit http://localhost:8000/
 
