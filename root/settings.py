@@ -10,11 +10,20 @@ if APPS_DIR not in sys.path:
 from mainsite import TOP_DIR
 
 
-DEBUG = os.environ.get('DEBUG', False)
+def str2bool(s):
+    return s is True or s==1 or (s.lower() in ("yes", "true", "t", "1"))
+
+APPS_DIR = os.path.dirname(__file__)
+if APPS_DIR not in sys.path:
+    sys.path.insert(0, APPS_DIR)
+from mainsite import TOP_DIR
+
+
+DEBUG = str2bool(os.environ.get('DEBUG', 'False'))
 TEMPLATE_DEBUG = DEBUG
 
 # Whether or not django should serve static files through its wsgi server. Suggested against in the docs, but makes deployment to heroku easier.
-DJANGO_SERVE_STATIC = os.environ.get('DJANGO_SERVE_STATIC', True)
+DJANGO_SERVE_STATIC = str2bool(os.environ.get('DJANGO_SERVE_STATIC', 'True'))
 
 
 INSTALLED_APPS = [
@@ -132,7 +141,6 @@ CACHES = {
 
 
 if DEBUG:
-    # Example of how to include debug toolbar in local_settings
     MIDDLEWARE_CLASSES.insert(0,'debug_toolbar.middleware.DebugToolbarMiddleware')
     INSTALLED_APPS.append('debug_toolbar')
     INTERNAL_IPS = (
