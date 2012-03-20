@@ -9,14 +9,8 @@ if APPS_DIR not in sys.path:
     sys.path.insert(0, APPS_DIR)
 from mainsite import TOP_DIR
 
-
 def str2bool(s):
     return s is True or s==1 or (s.lower() in ("yes", "true", "t", "1"))
-
-APPS_DIR = os.path.dirname(__file__)
-if APPS_DIR not in sys.path:
-    sys.path.insert(0, APPS_DIR)
-from mainsite import TOP_DIR
 
 
 DEBUG = str2bool(os.environ.get('DEBUG', 'False'))
