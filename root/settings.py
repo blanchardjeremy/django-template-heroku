@@ -140,7 +140,16 @@ CACHES = {
 }
 
 
-if DEBUG:
+
+
+def debug_toolbar_available():
+    try:
+        import debug_toolbar
+        return True
+    except ImportError:
+        return False
+
+if DEBUG and debug_toolbar_available():
     MIDDLEWARE_CLASSES.insert(0,'debug_toolbar.middleware.DebugToolbarMiddleware')
     INSTALLED_APPS.append('debug_toolbar')
     INTERNAL_IPS = (
