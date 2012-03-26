@@ -3,5 +3,4 @@
 *.pyc
 root/static/*
 root/uploads/*
-settings_local.py
 .env
