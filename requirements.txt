@@ -1,4 +1,4 @@
-git+https://github.com/django/django.git
+Django==1.4
 Jinja2==2.6
 South==0.7.3
 distribute==0.6.15
