@@ -9,18 +9,23 @@ if APPS_DIR not in sys.path:
     sys.path.insert(0, APPS_DIR)
 from mainsite import TOP_DIR
 
-def str2bool(s):
-    return s is True or s==1 or (s.lower() in ("yes", "true", "t", "1"))
 
+def boolcheck(s):
+    if isinstance(s, basestring):
+        return s.lower() in ("yes", "true", "t", "1")
+    else:
+        return bool(s)
 
-DEBUG = str2bool(os.environ.get('DEBUG', 'False'))
+DEBUG = boolcheck(os.environ.get('DEBUG', 'False'))
 TEMPLATE_DEBUG = DEBUG
 
 # Whether or not django should serve static files through its wsgi server. Suggested against in the docs, but makes deployment to heroku easier.
-DJANGO_SERVE_STATIC = str2bool(os.environ.get('DJANGO_SERVE_STATIC', 'True'))
+DJANGO_SERVE_STATIC = boolcheck(os.environ.get('DJANGO_SERVE_STATIC', 'True'))
 
 
 INSTALLED_APPS = [
+    'mainsite',
+
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -28,8 +33,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-
-    'mainsite',
 ]
 
 JINGO_EXCLUDE_APPS = ['admin', 'registration',]
