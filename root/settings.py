@@ -22,6 +22,9 @@ TEMPLATE_DEBUG = DEBUG
 # Whether or not django should serve static files through its wsgi server. Suggested against in the docs, but makes deployment to heroku easier.
 DJANGO_SERVE_STATIC = boolcheck(os.environ.get('DJANGO_SERVE_STATIC', 'True'))
 
+# Secret key should be the same on all of your servers. You can put it directly into settings if that is safe for you. Or you can specify it as an environment variable.
+# Get one here: http://www.miniwebtool.com/django-secret-key-generator/
+SECRET_KEY = os.environ.get('SECRET_KEY', 'PUT_A_SECRET_KEY_HERE')
 
 INSTALLED_APPS = [
     'mainsite',
@@ -88,7 +91,6 @@ ADMIN_MEDIA_PREFIX = STATIC_URL+'admin/'
 ROOT_URLCONF = 'mainsite.urls'
 
 
-SECRET_KEY = ''
 TIME_ZONE = 'America/Los_Angeles'
 LANGUAGE_CODE = 'en-us'
 SITE_ID = 1
