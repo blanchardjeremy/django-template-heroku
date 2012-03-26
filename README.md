@@ -30,7 +30,6 @@ The following is the short version of the usage instructions. For the full versi
 After starting a fresh project:
 
   1. Make a copy of `.env.example` called `.env` and edit it to contain your local settings including your database connection string
-  1. Delete this `README.md` file, rename `README.md.example` to `README.md`, replace with information for your current project
   1. Create your first app using SAMPLEAPP as a template
     1. Copy (don't rename) SAMPLE to a new directory for your new app. Example: `cp -R SAMPLEAPP blog`
     1. Add the new application to your `INSTALLED_APPS` in `settings.py`
@@ -38,6 +37,7 @@ After starting a fresh project:
     1. In your new app, edit `urls.py` and change all instances of SAMPLEAPP to your app name.
     1. Add urls, views, and templates to your new app as necessary
   1. Delete `LICENSE` if it is not how you want to license your new project
+  1. Delete this `README.md` file, rename `README.md.example` to `README.md`, replace with information for your current project
   1. Follow the *Usage* instructions in your new `README.md`
 
 
