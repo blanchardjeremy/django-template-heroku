@@ -4,6 +4,8 @@ This project is a template to get you started with a django project on the [Hero
 
 This template is a derivation of [django-template-auzigog](http://github.com/auzigog/django-template-auzigog) (which is good for non-Heroku projects).
 
+(Note: This readme file gets removed and replaced with README.md.example for your actual project)
+
 ## Features
 Pre-configured to work with:
 
