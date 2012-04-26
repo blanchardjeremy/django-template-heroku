@@ -41,6 +41,9 @@ Make sure you add all of the
     heroku domains:add www.SITENAME.com
     heroku domains:add SITENAME.com
 
+Note: if you don't have LANG=en_US.UTF-8 on your heroku instance, you won't be able to run `createsuperuser`.
+
+
 ## Author
 Created by [Your Name](http://example.com)
 
