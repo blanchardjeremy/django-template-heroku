@@ -31,12 +31,10 @@ Make sure you add all of the
 
     # Follow the heroku quickstart guide to get it installed and your authentication going
     heroku apps:create --stack=cedar SITENAME
-    heroku config:add FLICKR_SECRET=aaaaaaaaaaaaaaaa
     # repeat config:add for secret key and any other variables in .env, especially the LANG setting
     heroku push heroku master
     # Get the db and starter data ready
     heroku run python manage.py syncdb --noinput
-    heroku run python manage.py loaddata starter_data
     # Custom domains: configure your DNS as such: https://devcenter.heroku.com/articles/custom-domains
     heroku domains:add www.SITENAME.com
     heroku domains:add SITENAME.com

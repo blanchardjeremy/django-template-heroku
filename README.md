@@ -15,6 +15,7 @@ Pre-configured to work with:
   * [Jinja2](http://jinja.pocoo.org/docs/) templates
   * [django-debug-toolbar](http://github.com/django-debug-toolbar/django-debug-toolbar)
   * `.env` provided to separate machine-specific settings from universal settings
+  * [Gunicorn](http://gunicorn.org/) WSGI server support when deployed to Heroku
 
 ## Setup
 The following is the short version of the usage instructions. For the full version, check out [django-template-auzigog](http://github.com/auzigog/django-template-auzigog) and add the extra steps relating to Heroku.
