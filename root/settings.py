@@ -36,6 +36,7 @@ INSTALLED_APPS = [
 
 	# Dependencies
     'bootstrap',
+    'gunicorn',
 
 	# Django
     'django.contrib.auth',
