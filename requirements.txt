@@ -1,7 +1,7 @@
 # Django
 Django==1.4
-South==0.7.3
-psycopg2==2.4.1
+South==0.7.5
+psycopg2==2.4.5
 
 # Templates
 Jinja2==2.6
@@ -9,6 +9,6 @@ jingo==0.4
 git+https://github.com/auzigog/jinja-bootstrap.git@v0.3.0#egg=bootstrap
 
 # Base
-distribute==0.6.15
+distribute==0.6.27
 wsgiref==0.1.2
 gunicorn==0.14.3
