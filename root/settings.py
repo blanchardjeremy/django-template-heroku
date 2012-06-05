@@ -32,7 +32,7 @@ DJANGO_SERVE_STATIC = boolcheck(os.environ.get('DJANGO_SERVE_STATIC', DEBUG))
 ##
 
 INSTALLED_APPS = [
-	# This app
+	# This site
     'mainsite',
 
 	# Dependencies
