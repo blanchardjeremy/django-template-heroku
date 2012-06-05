@@ -1,34 +1,44 @@
 import sys
 import os
-# assume we are ./apps/mainsite/settings.py
 from urlparse import urlparse, uses_netloc
-uses_netloc.append('postgres')
 
-APPS_DIR = os.path.dirname(__file__)
-if APPS_DIR not in sys.path:
-    sys.path.insert(0, APPS_DIR)
 from mainsite import TOP_DIR
 
 
+##
+#
+#  Debug Flags
+#
+##
+
 def boolcheck(s):
     if isinstance(s, basestring):
-        return s.lower() in ("yes", "true", "t", "1")
+        return s.lower() in ("true", "yes", "t", "1")
     else:
         return bool(s)
 
-DEBUG = boolcheck(os.environ.get('DEBUG', 'False'))
+DEBUG = boolcheck(os.environ.get('DEBUG', False))
 TEMPLATE_DEBUG = DEBUG
+DEBUG_TOOLBAR = boolcheck(os.environ.get('DEBUG_TOOLBAR', DEBUG))
 
 # Whether or not django should serve static files through its wsgi server. Suggested against in the docs, but makes deployment to heroku easier.
-DJANGO_SERVE_STATIC = boolcheck(os.environ.get('DJANGO_SERVE_STATIC', 'True'))
+DJANGO_SERVE_STATIC = boolcheck(os.environ.get('DJANGO_SERVE_STATIC', DEBUG))
 
-# Secret key should be the same on all of your servers. You can put it directly into settings if that is safe for you. Or you can specify it as an environment variable.
-# Get one here: http://www.miniwebtool.com/django-secret-key-generator/
-SECRET_KEY = os.environ.get('SECRET_KEY', 'PUT_A_SECRET_KEY_HERE')
+
+##
+#
+#  Important Stuff
+#
+##
 
 INSTALLED_APPS = [
+	# This app
     'mainsite',
 
+	# Dependencies
+    'bootstrap',
+
+	# Django
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -36,11 +46,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+
+    # More dependencies (that need to be lower in the list)
+    #'south',
 ]
-
-JINGO_EXCLUDE_APPS = ['admin', 'registration',]
-
-
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.common.CommonMiddleware',
@@ -49,6 +58,28 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+# Secret key should be the same on all of your servers. You can put it directly into settings if that is safe for you. Or you can specify it as an environment variable.
+# Get one here: http://www.miniwebtool.com/django-secret-key-generator/
+SECRET_KEY = os.environ.get('SECRET_KEY', 'PUT_A_SECRET_KEY_HERE')
+
+
+
+##
+#
+#  Templates
+#
+##
+
+TEMPLATE_LOADERS = [
+	'jingo.Loader',
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
+]
+
+TEMPLATE_DIRS = [
+    os.path.join(TOP_DIR, 'templates'),
 ]
 
 TEMPLATE_CONTEXT_PROCESSORS = [
@@ -61,42 +92,78 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     'django.contrib.messages.context_processors.messages',
 ]
 
-TEMPLATE_LOADERS = [
-	'jingo.Loader',
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
-]
+JINGO_EXCLUDE_APPS = ['admin', 'registration',]
 
 
-TEMPLATE_DIRS = [
-    os.path.join(TOP_DIR, 'templates'),
-]
+##
+#
+#  Static Files
+#
+##
 
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
 
-
+STATIC_ROOT = os.environ.get('STATIC_ROOT', os.path.join(TOP_DIR, 'staticfiles'))
+STATIC_URL = os.environ.get('STATIC_URL', '/static/')
 STATICFILES_DIRS = [
 ]
 
 
-MEDIA_ROOT =  os.environ.get('MEDIA_ROOT', os.path.join(TOP_DIR, 'uploads'))
-STATIC_ROOT = os.environ.get('STATIC_ROOT', os.path.join(TOP_DIR, 'static'))
-MEDIA_URL = os.environ.get('MEDIA_URL', '/uploads/')
-STATIC_URL = os.environ.get('STATIC_URL', '/static/')
-ADMIN_MEDIA_PREFIX = STATIC_URL+'admin/'
+##
+#
+#  Media Files
+#
+##
 
-ROOT_URLCONF = 'mainsite.urls'
+MEDIA_ROOT =  os.environ.get('MEDIA_ROOT', os.path.join(TOP_DIR, 'mediafiles'))
+MEDIA_URL = os.environ.get('MEDIA_URL', '/media/')
 
 
-TIME_ZONE = 'America/Los_Angeles'
-LANGUAGE_CODE = 'en-us'
-SITE_ID = 1
-USE_I18N = True
-USE_L10N = True
-USE_TZ = True
+##
+#
+#  Database
+#
+##
+
+uses_netloc.append('postgres')
+url = urlparse(os.environ['DATABASE_URL'])
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': url.path[1:],
+        'USER': url.username,
+        'PASSWORD': url.password,
+        'HOST': url.hostname,
+        'PORT': url.port,
+    }
+}
+
+
+##
+#
+#  Caching
+#
+##
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': '',
+        'TIMEOUT': 300,
+        'KEY_PREFIX': '',
+        'VERSION': 1,
+    }
+}
+
+
+##
+#
+#  Logging
+#
+##
 
 LOGGING = {
     'version': 1,
@@ -117,30 +184,30 @@ LOGGING = {
 }
 
 
-url = urlparse(os.environ['DATABASE_URL'])
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': url.path[1:],
-        'USER': url.username,
-        'PASSWORD': url.password,
-        'HOST': url.hostname,
-        'PORT': url.port,
-    }
-}
+##
+#
+#  Misc.
+#
+##
 
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
-        'LOCATION': '',
-        'TIMEOUT': 300,
-        'KEY_PREFIX': '',
-        'VERSION': 1,
-    }
-}
+SITE_ID = 1
+
+ROOT_URLCONF = 'mainsite.urls'
+
+USE_I18N = False
+USE_L10N = False
+USE_TZ = True
+
+TIME_ZONE = 'America/Los_Angeles'
+LANGUAGE_CODE = 'en-us'
 
 
 
+##
+#
+#  Debug Toolbar
+#
+##
 
 def debug_toolbar_available():
     try:
@@ -149,7 +216,7 @@ def debug_toolbar_available():
     except ImportError:
         return False
 
-if DEBUG and debug_toolbar_available():
+if DEBUG_TOOLBAR and debug_toolbar_available():
     MIDDLEWARE_CLASSES.insert(0,'debug_toolbar.middleware.DebugToolbarMiddleware')
     INSTALLED_APPS.append('debug_toolbar')
     INTERNAL_IPS = (
