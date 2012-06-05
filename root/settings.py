@@ -1,4 +1,3 @@
-import sys
 import os
 from urlparse import urlparse, uses_netloc
 
