@@ -11,6 +11,7 @@ def error500(request, template_name='500.html'):
     })
     return http.HttpResponseServerError(t.render(context))
 
+
 def error404(request, template_name='404.html'):
     t = template.loader.get_template(template_name)
     context = template.Context({
@@ -19,10 +20,10 @@ def error404(request, template_name='404.html'):
     return http.HttpResponseNotFound(t.render(context))
 
 
-class TestView(TemplateView):
-    template_name = 'test.html'
+class HomeView(TemplateView):
+    template_name = 'home.html'
 
     def get_context_data(self, **kwargs):
-        context = super(TestView, self).get_context_data(**kwargs)
+        context = super(HomeView, self).get_context_data(**kwargs)
 
         return context
