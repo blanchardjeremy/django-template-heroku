@@ -13,6 +13,7 @@ Pre-configured to work with:
   * Heroku!
   * [PostgreSQL](http://www.postgresql.org/) database
   * [Jinja2](http://jinja.pocoo.org/docs/) templates
+  * [Jinja Bootstrap](http://github.com/auzigog/jinja-bootstrap/) for base templates and base styling
   * [django-debug-toolbar](http://github.com/django-debug-toolbar/django-debug-toolbar)
   * `.env` provided to separate machine-specific settings from universal settings
   * [Gunicorn](http://gunicorn.org/) WSGI server support when deployed to Heroku
