@@ -18,4 +18,4 @@ git+https://github.com/auzigog/jinja-bootstrap.git@v0.3.0#egg=bootstrap
 gunicorn==0.14.3
 dj-database-url==0.2.0
 
-# App requirements
+# Per-app requirements go here
