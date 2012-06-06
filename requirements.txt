@@ -1,15 +1,21 @@
 # Django
 Django==1.4
-pytz=2012c
-South==0.7.5
-psycopg2==2.4.5
+South==0.7.3
+psycopg2==2.4.1
+distribute==0.6.15
+wsgiref==0.1.2
+
+# Models
+git+git://github.com/concentricsky/django-cachemodel.git@b1f795ef07eff33ff57cd683fcab0ec968c251df#egg=django-cachemodel
+git+git://github.com/concentricsky/django-basic-models.git@9237a0ce7f6e0d5bd8d1d8f3acac17217362c5d8#egg=django-basic-models
 
 # Templates
 Jinja2==2.6
 jingo==0.4
 git+https://github.com/auzigog/jinja-bootstrap.git@v0.3.0#egg=bootstrap
 
-# Base
-distribute==0.6.27
-wsgiref==0.1.2
+# Heroku
 gunicorn==0.14.3
+dj-database-url==0.2.0
+
+# App requirements
