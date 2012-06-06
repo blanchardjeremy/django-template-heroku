@@ -21,7 +21,7 @@ TEMPLATE_DEBUG = DEBUG
 DEBUG_TOOLBAR = boolcheck(os.environ.get('DEBUG_TOOLBAR', DEBUG))
 
 # Whether or not django should serve static files through its wsgi server. Suggested against in the docs, but makes deployment to heroku easier.
-DJANGO_SERVE_STATIC = boolcheck(os.environ.get('DJANGO_SERVE_STATIC', DEBUG))
+DJANGO_SERVE_STATIC = boolcheck(os.environ.get('DJANGO_SERVE_STATIC', True))
 
 
 ##
