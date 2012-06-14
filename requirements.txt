@@ -4,6 +4,7 @@ South==0.7.3
 psycopg2==2.4.1
 distribute==0.6.15
 wsgiref==0.1.2
+pytz==2012c
 
 # Models
 git+git://github.com/concentricsky/django-cachemodel.git@b1f795ef07eff33ff57cd683fcab0ec968c251df#egg=django-cachemodel
