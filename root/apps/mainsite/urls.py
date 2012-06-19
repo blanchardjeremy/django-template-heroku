@@ -1,20 +1,17 @@
-from django.conf.urls.defaults import patterns, include, url
+from django.conf.urls import patterns, include, url
 from django.conf import settings
 from django.contrib import admin
 from mainsite.views import *
 
 admin.autodiscover()
 
-handler500 = 'mainsite.views.error500'
-handler404 = 'mainsite.views.error404'
-
 urlpatterns = patterns('',
-
     url(r'^admin/', include(admin.site.urls)),
-
     url(r'^$', HomeView.as_view(), name='home'),
 
-    (r'', include('SAMPLEAPP.urls')),
+    # Test URLs to allow you to see these pages while DEBUG is True
+    url(r'^error/404/$', Error404.as_view(), name='404'),
+    url(r'^error/500/$', Error500.as_view(), name='500'),
 )
 
 
