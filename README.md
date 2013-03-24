@@ -26,7 +26,7 @@ The following is the short version of the usage instructions. For the full versi
 
     cd ~/Projects
     mkdir PROJECTNAME && cd PROJECTNAME
-    djenesis code --virtualenv=env git+https://github.com/auzigog/django-template-heroku.git
+    djenesis PROJECTNAME --virtualenv=env git+https://github.com/auzigog/django-template-heroku.git
     cd code
 
 
