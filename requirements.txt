@@ -1,5 +1,5 @@
 # Django
-Django==1.4
+Django==1.5
 South==0.7.5
 psycopg2==2.4.5
 distribute==0.6.27
@@ -17,6 +17,6 @@ git+https://github.com/auzigog/jinja-bootstrap.git@v0.3.0#egg=bootstrap
 
 # Heroku
 gunicorn==0.14.3
-dj-database-url==0.2.0
+dj-database-url==0.2.1
 
 # Per-app requirements go here
