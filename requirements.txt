@@ -7,8 +7,8 @@ wsgiref==0.1.2
 pytz==2013b
 
 # Models
-git+git://github.com/concentricsky/django-cachemodel.git@b1f795ef07eff33ff57cd683fcab0ec968c251df#egg=django-cachemodel
-git+git://github.com/concentricsky/django-basic-models.git@9237a0ce7f6e0d5bd8d1d8f3acac17217362c5d8#egg=django-basic-models
+git+git://github.com/concentricsky/django-cachemodel.git@v0.9.8#egg=django-cachemodel
+git+git://github.com/concentricsky/django-basic-models.git@v0.8.8#egg=django-basic-models
 
 # Templates
 Jinja2==2.6
